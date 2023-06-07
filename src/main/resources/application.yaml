@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: hr_demo_springboot_mvc
+
+  mvc:
+    view:
+      prefix: "/WEB-INF/jsp/"
+      suffix: ".jsp"
+    static-path-pattern: "*"
+      
+  web:
+    resources:
+      add-mappings: true
+
+  error:
+    path: /error
+    whitelabel:
+      enabled: false
+
+database:
+  url: jdbc:oracle:thin:@192.168.0.112:1521/orcl
+  username: hr
+  password: hr
