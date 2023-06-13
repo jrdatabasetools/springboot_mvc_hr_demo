@@ -18,6 +18,6 @@ spring:
       enabled: false
 
 database:
-  url: jdbc:oracle:thin:@192.168.0.112:1521/orcl
+  url: jdbc:oracle:thin:@localhost:1521/xepdb1
   username: hr
   password: hr

@@ -62,22 +62,6 @@
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ucp</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>com.oracle.database.xml</groupId>-->
-<!--			<artifactId>xdb</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.oracle.database.security</groupId>-->
-<!--			<artifactId>osdt_cert</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.oracle.database.security</groupId>-->
-<!--			<artifactId>osdt_core</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.oracle.database.security</groupId>-->
-<!--			<artifactId>oraclepki</artifactId>-->
-<!--		</dependency>-->
 	</dependencies>
 
 	<build>
@@ -128,6 +112,9 @@
 				<configuration>
 					<connectorBuilderName>hr_demo_springboot_mvc</connectorBuilderName>
 					<info>warning</info>
+					<user>hr</user>
+					<password>hr</password>
+				        <url>jdbc:oracle:thin:@localhost:1521/xepdb1</url>
 				</configuration>
 				<executions>
 					<execution>
