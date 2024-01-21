@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Jan Richter, www.jr-database-tools.com, Switzerland, 2015-2023. All rights reserved.
+ * Copyright (c) Jan Richter, www.jr-database-tools.com, Switzerland, 2015-2024. All rights reserved.
  */
 
 package com.jrdatabasetools.hrdemo.springbootmvc;
@@ -36,6 +36,7 @@ public class HRDemoSpringbootApplicationMVC {
   public static void main(String[] args) {
     SpringApplication app = new SpringApplication(HRDemoSpringbootApplicationMVC.class);
     app.run();
+    LaunchWebBrowser.browse("http://localhost:8080");
   }
 
   @Bean

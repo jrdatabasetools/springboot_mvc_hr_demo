@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Jan Richter, www.jr-database-tools.com, Switzerland, 2015-2023. All rights reserved.
+ * Copyright (c) Jan Richter, www.jr-database-tools.com, Switzerland, 2015-2024. All rights reserved.
  */
 
 package com.jrdatabasetools.hrdemo.springbootmvc;
@@ -41,7 +41,7 @@ public class TimerCounter {
   }
 
   private String toTimeString(long diff) {
-    return String.format("%02d:%02d:%02d.%03d", (diff / 360000), (diff / 60000) % 60, (diff / 1000) % 60, diff % 1000);
+    return String.format("%02d:%02d:%02d.%03d", (diff / 3600000), (diff / 60000) % 60, (diff / 1000) % 60, diff % 1000);
   }
 
   public void preset() {
