@@ -4,7 +4,9 @@
 
 package com.jrdatabasetools.hrdemo.springbootmvc;
 
+import java.awt.Desktop;
 import java.lang.invoke.MethodHandles;
+import java.net.URI;
 
 import javax.sql.DataSource;
 
@@ -15,6 +17,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.vaadin.open.Open;
 
 import oracle.ucp.jdbc.PoolDataSource;
 import oracle.ucp.jdbc.PoolDataSourceFactory;
@@ -33,14 +37,17 @@ public class HRDemoSpringbootApplicationMVC {
   @Value("${database.password}")
   private String              password;
 
-  public static void main(String[] args) {
+  public static void main(String[] args)
+  {
     SpringApplication app = new SpringApplication(HRDemoSpringbootApplicationMVC.class);
     app.run();
-    LaunchWebBrowser.browse("http://localhost:8080");
+
+    Open.open("http://localhost:8080");
   }
 
   @Bean
-  public DataSource getDataSource() throws Exception {
+  public DataSource getDataSource() throws Exception
+  {
     logger.info("database.url=" + databaseUrl);
     logger.info("database.username=" + username);
 
