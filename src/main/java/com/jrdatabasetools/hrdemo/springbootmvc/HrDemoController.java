@@ -5,6 +5,8 @@
 package com.jrdatabasetools.hrdemo.springbootmvc;
 
 import java.lang.invoke.MethodHandles;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +24,8 @@ import com.jrdatabasetools.hrdemo.springbootmvc.connector.transferobject.PkgEmpl
 
 @Controller
 public class HrDemoController {
-  private static final Logger    logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Logger    logger       = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final String    DATE_PATTERN = "yyyy-MM-dd";
 
   @Autowired
   private PkgEmployeeDemoService service;
@@ -70,8 +73,8 @@ public class HrDemoController {
         request.setAttribute("combos", combos);
       }
 
-      List<PkgEmployeeDemoTO.RecEmployees> searchResult = service.listEmployees(jobId,
-                                                                                searchTerm,
+      List<PkgEmployeeDemoTO.RecEmployees> searchResult = service.listEmployees(searchTerm,
+                                                                                jobId,
                                                                                 managerId,
                                                                                 departmentId,
                                                                                 locationId,
@@ -100,6 +103,7 @@ public class HrDemoController {
     try {
       PkgEmployeeDemoTO.LoadEmployeeTO employee = service.loadEmployee(employeeId, 0);
       request.setAttribute("employee", employee);
+      request.setAttribute("hireDate", employee.getOHireDate().format(DateTimeFormatter.ofPattern(DATE_PATTERN)));
     }
     catch (Exception e) {
       logger.error(e.getMessage(), e);
@@ -135,9 +139,9 @@ public class HrDemoController {
                                         lastName,
                                         email,
                                         phoneNumber,
-                                        hireDate,
-                                        salary,
-                                        commissionPct,
+                                        LocalDate.parse(hireDate, DateTimeFormatter.ofPattern(DATE_PATTERN)),
+                                        Double.parseDouble(salary),
+                                        commissionPct != null && commissionPct.length() > 0 ? Double.parseDouble(commissionPct) : null,
                                         jobId,
                                         managerId,
                                         departmentId);

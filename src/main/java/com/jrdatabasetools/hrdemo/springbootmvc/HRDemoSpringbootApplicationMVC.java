@@ -4,9 +4,7 @@
 
 package com.jrdatabasetools.hrdemo.springbootmvc;
 
-import java.awt.Desktop;
 import java.lang.invoke.MethodHandles;
-import java.net.URI;
 
 import javax.sql.DataSource;
 
@@ -37,8 +35,7 @@ public class HRDemoSpringbootApplicationMVC {
   @Value("${database.password}")
   private String              password;
 
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) {
     SpringApplication app = new SpringApplication(HRDemoSpringbootApplicationMVC.class);
     app.run();
 
@@ -46,8 +43,7 @@ public class HRDemoSpringbootApplicationMVC {
   }
 
   @Bean
-  public DataSource getDataSource() throws Exception
-  {
+  public DataSource getDataSource() throws Exception {
     logger.info("database.url=" + databaseUrl);
     logger.info("database.username=" + username);
 
