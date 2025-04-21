@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Jan Richter, www.jr-database-tools.com, Switzerland, 2015-2024. All rights reserved.
+ * Copyright (c) jr-database-tools GmbH, Switzerland, 2015-2025. All rights reserved.
  */
 
 package com.jrdatabasetools.hrdemo.springbootmvc;
@@ -39,9 +39,9 @@ public class HrDemoController {
       request.getSession().setAttribute("combos", combos);
       request.setAttribute("combos", combos);
     }
-    catch (Exception e) {
-      logger.error(e.getMessage(), e);
-      request.setAttribute("error_message", e.getMessage());
+    catch (Exception ex) {
+      logger.error(ex.getMessage(), ex);
+      request.setAttribute("error_message", ex.getMessage());
     }
     finally {
       logger.info(tc.diff("load combos"));
@@ -83,9 +83,9 @@ public class HrDemoController {
                                                                                 0);
       request.setAttribute("search_result", searchResult);
     }
-    catch (Exception e) {
-      logger.error(e.getMessage(), e);
-      request.setAttribute("error_message", e.getMessage());
+    catch (Exception ex) {
+      logger.error(ex.getMessage(), ex);
+      request.setAttribute("error_message", ex.getMessage());
     }
     finally {
       logger.info(tc.diff("load combos and search time"));
@@ -105,9 +105,9 @@ public class HrDemoController {
       request.setAttribute("employee", employee);
       request.setAttribute("hireDate", employee.getOHireDate().format(DateTimeFormatter.ofPattern(DATE_PATTERN)));
     }
-    catch (Exception e) {
-      logger.error(e.getMessage(), e);
-      request.setAttribute("error_message", e.getMessage());
+    catch (Exception ex) {
+      logger.error(ex.getMessage(), ex);
+      request.setAttribute("error_message", ex.getMessage());
       return new ModelAndView("masterview");
     }
     finally {
@@ -146,9 +146,9 @@ public class HrDemoController {
                                         managerId,
                                         departmentId);
     }
-    catch (Exception e) {
-      logger.error(e.getMessage(), e);
-      request.setAttribute("error_message", e.getMessage());
+    catch (Exception ex) {
+      logger.error(ex.getMessage(), ex);
+      request.setAttribute("error_message", ex.getMessage());
       return getDetail(request, employeeId);
     }
     finally {
@@ -167,9 +167,9 @@ public class HrDemoController {
     try {
       service.removeEmployee(employeeId);
     }
-    catch (Exception e) {
-      logger.error(e.getMessage(), e);
-      request.setAttribute("error_message", e.getMessage());
+    catch (Exception ex) {
+      logger.error(ex.getMessage(), ex);
+      request.setAttribute("error_message", ex.getMessage());
       return getDetail(request, employeeId);
     }
     finally {
